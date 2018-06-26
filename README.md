@@ -14,14 +14,16 @@ Summary: NumCosmo is a free software C library whose main purposes are to test c
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/numcosmo-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/numcosmo-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/numcosmo-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/numcosmo-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/numcosmo-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/numcosmo-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/numcosmo-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/numcosmo-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/numcosmo/badges/version.svg)](https://anaconda.org/conda-forge/numcosmo)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/numcosmo/badges/downloads.svg)](https://anaconda.org/conda-forge/numcosmo)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-numcosmo-green.svg)](https://anaconda.org/conda-forge/numcosmo) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/numcosmo.svg)](https://anaconda.org/conda-forge/numcosmo) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/numcosmo.svg)](https://anaconda.org/conda-forge/numcosmo) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/numcosmo.svg)](https://anaconda.org/conda-forge/numcosmo) |
 
 Installing numcosmo
 ===================
