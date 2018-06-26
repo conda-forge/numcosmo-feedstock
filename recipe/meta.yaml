@@ -16,10 +16,10 @@ build:
 
 requirements:
   build:
+    - pkg-config
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
   host:
-    - pkg-config
     - glib
     - gsl
     - gmp
