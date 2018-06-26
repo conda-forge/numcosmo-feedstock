@@ -22,7 +22,7 @@ requirements:
     - glib
     - gsl
     - gmp
-    - mpfr
+    - mpfr 4.*
     - sundials
     - fftw
     - nlopt
@@ -38,7 +38,7 @@ requirements:
     - glib
     - gsl
     - gmp
-    - mpfr
+    - mpfr 4.*
     - sundials
     - fftw
     - nlopt
