@@ -20,6 +20,11 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
   host:
+    - python
+    - numpy 1.11.*  # [py27]
+    - numpy 1.13.*  # [py35]
+    - numpy 1.13.*  # [py36]
+    - numpy 1.14.*  # [py>=37]
     - glib
     - gsl
     - gmp
@@ -34,6 +39,10 @@ requirements:
     - gobject-introspection
   run:
     - python
+    - numpy 1.11.*  # [py27]
+    - numpy 1.13.*  # [py35]
+    - numpy 1.13.*  # [py36]
+    - numpy 1.14.*  # [py>=37]
     - glib
     - gsl
     - gmp
