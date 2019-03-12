@@ -24,7 +24,6 @@ requirements:
     - gsl
     - gmp
     - mpfr
-    - sundials
     - fftw
     - nlopt
     - cfitsio
@@ -38,7 +37,6 @@ requirements:
     - gsl
     - gmp
     - mpfr
-    - sundials
     - fftw
     - nlopt
     - cfitsio
