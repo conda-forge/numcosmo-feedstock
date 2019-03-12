@@ -1,5 +1,5 @@
-{% set version = "0.14.1" %}
-{% set sha256 = "96c4233379c14a118b92cfbdbf4fe51fd3576c86e9477452138d44b3d07a3f08" %}
+{% set version = "0.14.2" %}
+{% set sha256 = "be448a6e7d9c68a91af9ab60140cafe99212656e21a72bdbbeabc1e54de67e93" %}
 
 package:
   name: numcosmo
@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   skip: True  # [win]
   detect_binary_files_with_prefix: True
 
@@ -29,7 +29,6 @@ requirements:
     - gsl
     - gmp
     - mpfr
-    - sundials
     - fftw
     - nlopt
     - cfitsio
@@ -47,7 +46,6 @@ requirements:
     - gsl
     - gmp
     - mpfr
-    - sundials
     - fftw
     - nlopt
     - cfitsio
