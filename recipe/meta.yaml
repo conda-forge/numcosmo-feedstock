@@ -39,6 +39,7 @@ requirements:
     - fftw
     - nlopt
     - cfitsio
+    - libcurl
     - openblas
     - lapack
     - arb

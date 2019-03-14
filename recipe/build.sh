@@ -3,7 +3,7 @@
 _PY=$PYTHON
 export PYTHON="python"
 
-./configure --prefix="${PREFIX}" --enable-opt-cflags LDFLAGS="-Wl,--as-needed"
+./configure --prefix="${PREFIX}" --enable-opt-cflags
 
 make -j$CPU_COUNT
 #make check VERBOSE=1 -j$CPU_COUNT
