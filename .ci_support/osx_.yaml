@@ -37,7 +37,3 @@ pin_run_as_build:
     max_pin: x.x.x
   openblas:
     max_pin: x.x.x
-  sundials:
-    max_pin: x.x
-sundials:
-- '3.2'
