@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 3
   skip: True  # [win]
   detect_binary_files_with_prefix: True
 
@@ -20,6 +20,8 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
   host:
+    - libblas
+    - libcblas
     - glib
     - gsl
     - gmp
@@ -27,8 +29,6 @@ requirements:
     - fftw
     - nlopt
     - cfitsio
-    - openblas
-    - lapack
     - arb
     - gobject-introspection
   run:
@@ -40,8 +40,6 @@ requirements:
     - nlopt
     - cfitsio
     - libcurl
-    - openblas
-    - lapack
     - arb
     - pygobject
     - numpy
