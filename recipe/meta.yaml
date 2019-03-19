@@ -10,9 +10,11 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 3
   skip: True  # [win]
   detect_binary_files_with_prefix: True
+  run_exports:
+    - {{ pin_subpackage('numcosmo', max_pin='x.x') }}
 
 requirements:
   build:
@@ -20,18 +22,10 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
   host:
-    - glib
-    - gsl
-    - gmp
-    - mpfr
-    - fftw
-    - nlopt
-    - cfitsio
-    - openblas
-    - lapack
-    - arb
     - gobject-introspection
-  run:
+    - libblas
+    - libcblas
+    - liblapack
     - glib
     - gsl
     - gmp
@@ -39,13 +33,17 @@ requirements:
     - fftw
     - nlopt
     - cfitsio
-    - libcurl
-    - openblas
-    - lapack
     - arb
+    - hdf5
+  run:
+    - libcurl
+    - fftw
+    - nlopt
+    - cfitsio
     - pygobject
     - numpy
     - matplotlib
+    - zlib
 
 test:
   commands:

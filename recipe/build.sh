@@ -2,6 +2,7 @@
 
 _PY=$PYTHON
 export PYTHON="python"
+export CPPFLAGS="$CPPFLAGS -I${PREFIX}/include"
 
 ./configure --prefix="${PREFIX}" --enable-opt-cflags
 
