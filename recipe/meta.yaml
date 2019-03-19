@@ -13,16 +13,19 @@ build:
   number: 3
   skip: True  # [win]
   detect_binary_files_with_prefix: True
+  run_exports:
+    - numcosmo
 
 requirements:
   build:
-    - pkg-config
+    - {{native}}pkg-config
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
-    - gobject-introspection
   host:
+    - gobject-introspection
     - libblas
     - libcblas
+    - liblapack
     - glib
     - gsl
     - gmp
@@ -33,6 +36,9 @@ requirements:
     - arb
   run:
     - libcurl
+    - fftw
+    - nlopt
+    - cfitsio
     - pygobject
     - numpy
     - matplotlib
