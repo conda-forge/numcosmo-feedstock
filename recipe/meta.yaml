@@ -14,7 +14,7 @@ build:
   skip: True  # [win]
   detect_binary_files_with_prefix: True
   run_exports:
-    - numcosmo
+    - {{ pin_subpackage('numcosmo', max_pin='x.x') }}
 
 requirements:
   build:
@@ -34,6 +34,7 @@ requirements:
     - nlopt
     - cfitsio
     - arb
+    - hdf5
   run:
     - libcurl
     - fftw
