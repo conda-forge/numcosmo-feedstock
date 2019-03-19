@@ -19,6 +19,7 @@ requirements:
     - pkg-config
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
+    - gobject-introspection
   host:
     - libblas
     - libcblas
@@ -30,17 +31,8 @@ requirements:
     - nlopt
     - cfitsio
     - arb
-    - gobject-introspection
   run:
-    - glib
-    - gsl
-    - gmp
-    - mpfr
-    - fftw
-    - nlopt
-    - cfitsio
     - libcurl
-    - arb
     - pygobject
     - numpy
     - matplotlib
