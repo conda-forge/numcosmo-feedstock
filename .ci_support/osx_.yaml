@@ -3,13 +3,15 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '4'
+- '9'
 cfitsio:
 - '3.470'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
+fftw:
+- '3'
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
@@ -37,6 +39,8 @@ mpfr:
 nlopt:
 - 2.6.*
 pin_run_as_build:
+  fftw:
+    max_pin: x
   gmp:
     max_pin: x
   mpfr:
