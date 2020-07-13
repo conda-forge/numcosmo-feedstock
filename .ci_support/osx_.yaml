@@ -1,11 +1,11 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 arb:
-- '2.17'
+- '2.18'
 c_compiler:
 - clang
 c_compiler_version:
-- '9'
+- '10'
 cfitsio:
 - '3.470'
 channel_sources:
