@@ -1,0 +1,52 @@
+arb:
+- '2.18'
+c_compiler:
+- gcc
+c_compiler_version:
+- '9'
+cfitsio:
+- '3.470'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+docker_image:
+- condaforge/linux-anvil-comp7
+fftw:
+- '3'
+fortran_compiler:
+- gfortran
+fortran_compiler_version:
+- '9'
+glib:
+- '2.58'
+gmp:
+- '6'
+gsl:
+- '2.6'
+hdf5:
+- 1.10.6
+libblas:
+- 3.8 *netlib
+libcblas:
+- 3.8 *netlib
+liblapack:
+- 3.8.0 *netlib
+mpfr:
+- '4'
+nlopt:
+- 2.6.*
+pin_run_as_build:
+  fftw:
+    max_pin: x
+  gmp:
+    max_pin: x
+  mpfr:
+    max_pin: x
+  nlopt:
+    max_pin: x.x.x
+target_platform:
+- linux-64
+zip_keys:
+- - c_compiler_version
+  - fortran_compiler_version
