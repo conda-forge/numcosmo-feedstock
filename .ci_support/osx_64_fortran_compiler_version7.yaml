@@ -5,7 +5,7 @@ arb:
 c_compiler:
 - clang
 c_compiler_version:
-- '10'
+- '11'
 cfitsio:
 - '3.470'
 channel_sources:
@@ -31,13 +31,13 @@ libblas:
 libcblas:
 - 3.8 *netlib
 liblapack:
-- 3.8.0 *netlib
+- 3.8 *netlib
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpfr:
 - '4'
 nlopt:
-- 2.6.*
+- '2.7'
 pin_run_as_build:
   fftw:
     max_pin: x
