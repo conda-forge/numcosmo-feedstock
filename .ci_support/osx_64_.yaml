@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 arb:
-- '2.20'
+- '2.21'
 c_compiler:
 - clang
 c_compiler_version:
