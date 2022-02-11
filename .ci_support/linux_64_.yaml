@@ -1,5 +1,5 @@
 arb:
-- '2.20'
+- '2.22'
 c_compiler:
 - gcc
 c_compiler_version:
@@ -13,7 +13,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 docker_image:
-- quay.io/condaforge/linux-anvil-comp7
+- quay.io/condaforge/linux-anvil-cos7-x86_64
 fftw:
 - '3'
 fortran_compiler:
@@ -52,5 +52,3 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - fortran_compiler_version
-- - cdt_name
-  - docker_image
