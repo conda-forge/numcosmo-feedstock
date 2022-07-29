@@ -5,7 +5,7 @@ arb:
 c_compiler:
 - clang
 c_compiler_version:
-- '12'
+- '13'
 cfitsio:
 - 4.1.0
 channel_sources:
@@ -25,13 +25,13 @@ gmp:
 gsl:
 - '2.7'
 hdf5:
-- 1.12.1
+- 1.12.2
 libblas:
-- 3.8 *netlib
+- 3.9 *netlib
 libcblas:
-- 3.8 *netlib
+- 3.9 *netlib
 liblapack:
-- 3.8 *netlib
+- 3.9 *netlib
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpfr:
