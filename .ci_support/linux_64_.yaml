@@ -1,5 +1,5 @@
 arb:
-- '2.22'
+- '2.23'
 c_compiler:
 - gcc
 c_compiler_version:
@@ -29,11 +29,11 @@ gsl:
 hdf5:
 - 1.12.1
 libblas:
-- 3.8 *netlib
+- 3.9 *netlib
 libcblas:
-- 3.8 *netlib
+- 3.9 *netlib
 liblapack:
-- 3.8 *netlib
+- 3.9 *netlib
 mpfr:
 - '4'
 nlopt:

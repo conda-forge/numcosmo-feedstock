@@ -1,11 +1,11 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 arb:
-- '2.22'
+- '2.23'
 c_compiler:
 - clang
 c_compiler_version:
-- '12'
+- '14'
 cfitsio:
 - 4.1.0
 channel_sources:
@@ -17,7 +17,7 @@ fftw:
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
-- '9'
+- '11'
 glib:
 - '2'
 gmp:
@@ -27,11 +27,11 @@ gsl:
 hdf5:
 - 1.12.1
 libblas:
-- 3.8 *netlib
+- 3.9 *netlib
 libcblas:
-- 3.8 *netlib
+- 3.9 *netlib
 liblapack:
-- 3.8 *netlib
+- 3.9 *netlib
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpfr:
