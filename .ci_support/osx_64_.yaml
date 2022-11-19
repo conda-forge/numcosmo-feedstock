@@ -7,7 +7,7 @@ c_compiler:
 c_compiler_version:
 - '14'
 cfitsio:
-- 4.1.0
+- 4.2.0
 channel_sources:
 - conda-forge
 channel_targets:
@@ -38,15 +38,6 @@ mpfr:
 - '4'
 nlopt:
 - '2.7'
-pin_run_as_build:
-  fftw:
-    max_pin: x
-  gmp:
-    max_pin: x
-  mpfr:
-    max_pin: x
-  nlopt:
-    max_pin: x.x.x
 target_platform:
 - osx-64
 zip_keys:
