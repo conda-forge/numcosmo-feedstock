@@ -1,5 +1,5 @@
-{% set version = "0.16.0" %}
-{% set sha256 = "fb40304c9a71f8f4af8b7f9a84d668ff8d122954a0d0e2d5a2a920539902624a" %}
+{% set version = "0.17.0" %}
+{% set sha256 = "91bd9d6a9475a6fc5c2eaff4b647c2230a993ea7790b1fb9059d32adb95bea65" %}
 
 package:
   name: numcosmo
@@ -34,6 +34,9 @@ requirements:
     - cfitsio
     - arb
     - hdf5
+    - libfyaml
+    - python
+    - pytest
   run:
     - libcurl
     - fftw
