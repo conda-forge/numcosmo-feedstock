@@ -1,11 +1,11 @@
-About numcosmo
-==============
+About numcosmo-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/numcosmo-feedstock/blob/main/LICENSE.txt)
 
 Home: https://numcosmo.github.io/
 
 Package license: GPL-3.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/numcosmo-feedstock/blob/main/LICENSE.txt)
 
 Summary: NumCosmo is a free software C library whose main purposes are to test cosmological models using observational data and to provide a set of tools to perform cosmological calculations.
 
@@ -27,17 +27,73 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
+              <td>linux_64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5270&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64</td>
+              <td>linux_64_python3.8.____73_pypy</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5270&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.8.____73_pypy" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_64_python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5270&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_64_python3.9.____73_pypy</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5270&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.9.____73_pypy" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_64_python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5270&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5270&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.8.____73_pypy</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5270&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.8.____73_pypy" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5270&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.9.____73_pypy</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5270&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.9.____73_pypy" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5270&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/numcosmo-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr>
