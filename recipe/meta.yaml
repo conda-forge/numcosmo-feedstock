@@ -47,6 +47,7 @@ requirements:
     - numpy
     - matplotlib-base
     - zlib
+    - python
 
 test:
   commands:
