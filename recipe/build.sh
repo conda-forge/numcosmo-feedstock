@@ -11,6 +11,10 @@ export CPPFLAGS="$CPPFLAGS -I${PREFIX}/include"
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$PREFIX/lib/pkgconfig:$BUILD_PREFIX/lib/pkgconfig
 export PKG_CONFIG=$(which pkg-config)
 
+if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
+    export GI_CROSS_LAUNCHER=$BUILD_PREFIX/libexec/gi-cross-launcher-load.sh
+fi
+
 ./configure --prefix="${PREFIX}" \
             --host=${HOST}       \
             --build=${BUILD}     \
