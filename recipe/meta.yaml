@@ -38,7 +38,7 @@ requirements:
     - hdf5                   # [build_platform != target_platform]
     - libfyaml               # [build_platform != target_platform]
   host:
-    - gobject-introspection
+    - gobject-introspection  # [build_platform == target_platform]
     - libblas
     - libcblas
     - liblapack
