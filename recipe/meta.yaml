@@ -23,6 +23,19 @@ requirements:
     - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
+    - libblas    # [build_platform != target_platform]
+    - libcblas   # [build_platform != target_platform]
+    - liblapack  # [build_platform != target_platform]
+    - glib       # [build_platform != target_platform]
+    - gsl        # [build_platform != target_platform]
+    - gmp        # [build_platform != target_platform]
+    - mpfr       # [build_platform != target_platform]
+    - fftw       # [build_platform != target_platform]
+    - nlopt      # [build_platform != target_platform]
+    - cfitsio    # [build_platform != target_platform]
+    - arb        # [build_platform != target_platform]
+    - hdf5       # [build_platform != target_platform]
+    - libfyaml   # [build_platform != target_platform]
   host:
     - gobject-introspection
     - libblas
