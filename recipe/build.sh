@@ -28,11 +28,12 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
     # Unset them as we're ok with builds that are either slow or non-portable
     unset CFLAGS
     unset CPPFLAGS
+    unset CXXFLAGS
+    unset FCFLAGS
+    unset FFLAGS
     export host_alias=$build_alias
 
     ../configure --prefix="${PREFIX}" \
-                 --host=${HOST}       \
-                 --build=${BUILD}     \
                  --enable-opt-cflags  \
                  || (cat config.log; false)
 
