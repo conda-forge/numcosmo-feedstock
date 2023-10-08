@@ -33,7 +33,7 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
     unset FFLAGS
     export host_alias=$build_alias
 
-    ../configure --prefix="${PREFIX}" \
+    ../configure --prefix="${BUILD_PREFIX}" \
                  --enable-opt-cflags  \
                  || (cat config.log; false)
 
