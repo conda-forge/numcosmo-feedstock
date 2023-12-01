@@ -1,16 +1,16 @@
-{% set version = "0.18.2" %}
-{% set sha256 = "6a4c602a91c469ecc077efd92b47f39e95488f51a52aca9e14cf4c222830cad6" %}
+{% set version = "0.19.0" %}
+{% set sha256 = "d6d7c47c5e85cc94a4e93439ab153ad18fc8702d9e31c45abe0f2867476a38bc" %}
 
 package:
   name: numcosmo
   version: {{ version }}
 
 source:
-  url: https://github.com/NumCosmo/NumCosmo/releases/download/v{{ version }}/numcosmo-{{ version }}.tar.gz 
+  url: https://github.com/NumCosmo/NumCosmo/releases/download/v{{ version }}/numcosmo-{{ version }}.tar.xz 
   sha256: {{ sha256 }}
 
 build:
-  number: 4
+  number: 0
   skip: True  # [win]
   skip: true  # [python_impl == 'pypy']
   detect_binary_files_with_prefix: True
@@ -19,9 +19,9 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - make  # [unix]
+    - meson
+    - ninja
     - pkg-config
-    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - gobject-introspection  # [build_platform != target_platform]
