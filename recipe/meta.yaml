@@ -22,6 +22,8 @@ requirements:
     - meson
     - ninja
     - pkg-config
+    - pytest
+    - pygobject
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - gobject-introspection  # [build_platform != target_platform]
