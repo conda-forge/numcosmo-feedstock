@@ -8,6 +8,12 @@ export CPPFLAGS="$CPPFLAGS -I${PREFIX}/include"
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$PREFIX/lib/pkgconfig:$BUILD_PREFIX/lib/pkgconfig
 export PKG_CONFIG=$(which pkg-config)
 
+# Workaround to use the right lto plugins
+# This should transform *ar into *gcc-ar
+[[ $AR != *gcc* ]] && AR="${AR//ar/gcc-ar}"
+# This should transform *nm into *gcc-nm
+[[ $NM != *gcc* ]] && NM="${NM//nm/gcc-nm}"
+
 if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
   unset _CONDA_PYTHON_SYSCONFIGDATA_NAME
   (
@@ -21,6 +27,10 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
     export NM="$($CC_FOR_BUILD -print-prog-name=nm)"
     export LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX}
     export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig
+
+    # Workaround to use the right lto plugins, as above
+    [[ $AR != *gcc* ]] && AR="${AR//ar/gcc-ar}"
+    [[ $NM != *gcc* ]] && NM="${NM//nm/gcc-nm}"
 
     # Unset them as we're ok with builds that are either slow or non-portable
     unset CFLAGS
