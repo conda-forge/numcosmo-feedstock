@@ -25,8 +25,8 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
     cd native-build
 
     export CC=$CC_FOR_BUILD
-    export FC=$GFORTRAN_FOR_BUILD
-    export F77=$GFORTRAN_FOR_BUILD
+    export FC=$FC_FOR_BUILD
+    export F77=$FC_FOR_BUILD
     export AR="$($CC_FOR_BUILD -print-prog-name=ar)"
     export NM="$($CC_FOR_BUILD -print-prog-name=nm)"
     export LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX}
