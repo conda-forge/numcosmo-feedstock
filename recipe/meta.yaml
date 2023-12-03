@@ -1,5 +1,5 @@
 {% set version = "0.19.0" %}
-{% set sha256 = "39065966a0a691af268014f65ab5d41ecd840a7630861bec1bfb9f14a0f24e47" %}
+{% set sha256 = "cf39fe21af0658822c57b27aaadda8c900a0789f2f78b0ceebee2fc6187cf453" %}
 
 package:
   name: numcosmo
