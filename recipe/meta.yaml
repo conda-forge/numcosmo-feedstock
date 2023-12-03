@@ -1,30 +1,32 @@
-{% set version = "0.18.2" %}
-{% set sha256 = "6a4c602a91c469ecc077efd92b47f39e95488f51a52aca9e14cf4c222830cad6" %}
+{% set version = "0.19.0" %}
+{% set sha256 = "51429148ab94920e803463e566b39b8e99cf2a7b383c0d3895a3d72db78502f0" %}
 
 package:
   name: numcosmo
   version: {{ version }}
 
 source:
-  url: https://github.com/NumCosmo/NumCosmo/releases/download/v{{ version }}/numcosmo-{{ version }}.tar.gz 
+  url: https://github.com/NumCosmo/NumCosmo/releases/download/v{{ version }}/numcosmo-{{ version }}.tar.xz 
   sha256: {{ sha256 }}
 
 build:
-  number: 4
+  number: 0
   skip: True  # [win]
   skip: true  # [python_impl == 'pypy']
   detect_binary_files_with_prefix: True
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
+    - python
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - make  # [unix]
+    - meson
+    - ninja
     - pkg-config
-    - gnuconfig  # [unix]
+    - pytest
+    - pygobject
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
-    - gobject-introspection  # [build_platform != target_platform]
+    - gobject-introspection
     - libblas                # [build_platform != target_platform]
     - libcblas               # [build_platform != target_platform]
     - liblapack              # [build_platform != target_platform]
@@ -39,7 +41,6 @@ requirements:
     - hdf5                   # [build_platform != target_platform]
     - libfyaml               # [build_platform != target_platform]
   host:
-    - gobject-introspection  # [build_platform == target_platform]
     - libblas
     - libcblas
     - liblapack
@@ -68,6 +69,8 @@ requirements:
     - python
 
 test:
+  requires:
+    - pygobject
   commands:
     - test -f ${PREFIX}/lib/libnumcosmo{{ SHLIB_EXT }}   # [not win]
     - $PYTHON ${PREFIX}/share/numcosmo-{{ version }}/examples/example_simple.py

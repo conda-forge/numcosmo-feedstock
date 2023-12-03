@@ -2,14 +2,21 @@
 
 set -ex
 
-# Get an updated config.sub and config.guess
-cp $BUILD_PREFIX/share/gnuconfig/config.* .
-
 _PY=$PYTHON
 export PYTHON="python"
 export CPPFLAGS="$CPPFLAGS -I${PREFIX}/include"
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$PREFIX/lib/pkgconfig:$BUILD_PREFIX/lib/pkgconfig
 export PKG_CONFIG=$(which pkg-config)
+
+# Workaround to use the right lto plugins
+
+# This should transform the last occurrence of 'ar' into 'gcc-ar'
+[[ $AR != *gcc* && $AR == *ar* ]] && export GCC_AR="${AR%ar}gcc-ar${AR##*ar}"
+[[ -e $GCC_AR ]] && AR=$GCC_AR
+
+# This should transform the last occurrence of 'nm' into 'gcc-nm'
+[[ $NM != *gcc* && $NM == *nm* ]] && export GCC_NM="${NM%nm}gcc-nm${NM##*nm}"
+[[ -e $GCC_NM ]] && NM=$GCC_NM
 
 if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
   unset _CONDA_PYTHON_SYSCONFIGDATA_NAME
@@ -18,12 +25,22 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
     cd native-build
 
     export CC=$CC_FOR_BUILD
-    export FC=$GFORTRAN_FOR_BUILD
-    export F77=$GFORTRAN_FOR_BUILD
+    export FC=$FC_FOR_BUILD
+    export F77=$FC_FOR_BUILD
     export AR="$($CC_FOR_BUILD -print-prog-name=ar)"
     export NM="$($CC_FOR_BUILD -print-prog-name=nm)"
     export LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX}
     export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig
+
+    # Workaround to use the right lto plugins
+
+    # This should transform the last occurrence of 'ar' into 'gcc-ar'
+    [[ $AR != *gcc* && $AR == *ar* ]] && export GCC_AR="${AR%ar}gcc-ar${AR##*ar}"
+    [[ -e $GCC_AR ]] && AR=$GCC_AR
+
+    # This should transform the last occurrence of 'nm' into 'gcc-nm'
+    [[ $NM != *gcc* && $NM == *nm* ]] && export GCC_NM="${NM%nm}gcc-nm${NM##*nm}"
+    [[ -e $GCC_NM ]] && AR=$GCC_NM
 
     # Unset them as we're ok with builds that are either slow or non-portable
     unset CFLAGS
@@ -33,30 +50,18 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
     unset FFLAGS
     export host_alias=$build_alias
 
-    ../configure --prefix="${BUILD_PREFIX}" \
-                 --enable-opt-cflags  \
-                 || (cat config.log; false)
+    meson setup --libdir=$BUILD_PREFIX/lib --prefix=$BUILD_PREFIX || (cat meson-logs/meson-log.txt && exit 1)
 
     # This script would generate the functions.txt and dump.xml and save them
     # This is loaded in the native build. We assume that the functions exported
     # by the package are the same for the native and cross builds
     export GI_CROSS_LAUNCHER=$BUILD_PREFIX/libexec/gi-cross-launcher-save.sh
-    make -j$CPU_COUNT
-    make install -j$CPU_COUNT
+    meson compile -j$CPU_COUNT
+    meson install
   )
   export GI_CROSS_LAUNCHER=$BUILD_PREFIX/libexec/gi-cross-launcher-load.sh
 fi
 
-./configure --prefix="${PREFIX}" \
-            --host=${HOST}       \
-            --build=${BUILD}     \
-            --enable-opt-cflags  \
-            || (cat config.log; false)
-
-make -j$CPU_COUNT
-# if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
-#   make check VERBOSE=1 -j$CPU_COUNT
-# fi
-
-make install -j$CPU_COUNT
-
+meson setup ${MESON_ARGS:---libdir=$PREFIX/lib} builddir --prefix=$PREFIX || (cat builddir/meson-logs/meson-log.txt && exit 1)
+meson compile -C builddir -j$CPU_COUNT
+meson install -C builddir
