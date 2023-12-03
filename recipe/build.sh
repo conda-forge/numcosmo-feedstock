@@ -16,7 +16,7 @@ export PKG_CONFIG=$(which pkg-config)
 
 # This should transform the last occurrence of 'nm' into 'gcc-nm'
 [[ $NM != *gcc* && $NM == *nm* ]] && export GCC_NM="${NM%nm}gcc-nm${NM##*nm}"
-[[ -e $GCC_NM ]] && AR=$GCC_NM
+[[ -e $GCC_NM ]] && NM=$GCC_NM
 
 if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
   unset _CONDA_PYTHON_SYSCONFIGDATA_NAME
