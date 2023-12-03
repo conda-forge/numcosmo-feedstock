@@ -69,6 +69,8 @@ requirements:
     - python
 
 test:
+  requires:
+    - pygobject
   commands:
     - test -f ${PREFIX}/lib/libnumcosmo{{ SHLIB_EXT }}   # [not win]
     - $PYTHON ${PREFIX}/share/numcosmo-{{ version }}/examples/example_simple.py
