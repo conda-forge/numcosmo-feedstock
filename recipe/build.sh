@@ -25,7 +25,7 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
     export F77=$GFORTRAN_FOR_BUILD
     export AR="$($CC_FOR_BUILD -print-prog-name=ar)"
     export NM="$($CC_FOR_BUILD -print-prog-name=nm)"
-    export LDFLAGS="-ldl ${LDFLAGS//$PREFIX/$BUILD_PREFIX}"
+    export LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX}
     export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig
 
     # Workaround to use the right lto plugins, as above
@@ -53,8 +53,6 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
   )
   export GI_CROSS_LAUNCHER=$BUILD_PREFIX/libexec/gi-cross-launcher-load.sh
 fi
-
-export LDFLAGS="-ldl $LDFLAGS"
 
 meson setup ${MESON_ARGS:---libdir=$PREFIX/lib} builddir --prefix=$PREFIX || (cat builddir/meson-logs/meson-log.txt && exit 1)
 meson compile -C builddir -j$CPU_COUNT
