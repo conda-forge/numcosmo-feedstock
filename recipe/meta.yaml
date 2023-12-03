@@ -41,8 +41,6 @@ requirements:
     - hdf5                   # [build_platform != target_platform]
     - libfyaml               # [build_platform != target_platform]
   host:
-    - python
-    - pygobject
     - libblas
     - libcblas
     - liblapack
@@ -56,16 +54,19 @@ requirements:
     - arb
     - hdf5
     - libfyaml
-  run:
     - python
+    - pytest
     - pygobject
+  run:
     - libcurl
     - fftw
     - nlopt
     - cfitsio
+    - pygobject
     - numpy
     - matplotlib-base
     - zlib
+    - python
 
 test:
   commands:
