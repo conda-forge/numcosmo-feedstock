@@ -62,6 +62,6 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
   export GI_CROSS_LAUNCHER=$BUILD_PREFIX/libexec/gi-cross-launcher-load.sh
 fi
 
-meson setup ${MESON_ARGS:---libdir=$PREFIX/lib} builddir --prefix=$PREFIX || (cat builddir/meson-logs/meson-log.txt && exit 1)
+meson setup ${MESON_ARGS:---libdir=$PREFIX/lib} builddir --prefix=$PREFIX -Dintrospection=enabled || (cat builddir/meson-logs/meson-log.txt && exit 1)
 meson compile -C builddir -j$CPU_COUNT
 meson install -C builddir
