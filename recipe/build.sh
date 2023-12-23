@@ -50,7 +50,7 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
     unset FFLAGS
     export host_alias=$build_alias
 
-    meson setup --libdir=$BUILD_PREFIX/lib --prefix=$BUILD_PREFIX || (cat meson-logs/meson-log.txt && exit 1)
+    meson setup -Dnumcosmo_py=true --libdir=$BUILD_PREFIX/lib --prefix=$BUILD_PREFIX || (cat meson-logs/meson-log.txt && exit 1)
 
     # This script would generate the functions.txt and dump.xml and save them
     # This is loaded in the native build. We assume that the functions exported
@@ -62,6 +62,6 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
   export GI_CROSS_LAUNCHER=$BUILD_PREFIX/libexec/gi-cross-launcher-load.sh
 fi
 
-meson setup ${MESON_ARGS:---libdir=$PREFIX/lib} builddir --prefix=$PREFIX -Dintrospection=enabled || (cat builddir/meson-logs/meson-log.txt && exit 1)
+meson setup ${MESON_ARGS:---libdir=$PREFIX/lib} builddir --prefix=$PREFIX -Dintrospection=enabled -Dnumcosmo_py=true || (cat builddir/meson-logs/meson-log.txt && exit 1)
 meson compile -C builddir -j$CPU_COUNT
 meson install -C builddir
