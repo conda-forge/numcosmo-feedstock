@@ -1,5 +1,5 @@
 {% set version = "0.19.2" %}
-{% set sha256 = "23878802f6f2fe1c8c2eea5368f22c18c73c75570a56dab5441b900efb542d69" %}
+{% set sha256 = "b279df4ad2d22b0560a4db12170a2e88ca52d0c73f022378f7abc8a32b704dac" %}
 
 package:
   name: numcosmo
@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   skip: true  # [python_impl == 'pypy']
   detect_binary_files_with_prefix: true
