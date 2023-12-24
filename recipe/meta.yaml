@@ -23,6 +23,7 @@ requirements:
     - ninja
     - pkg-config
     - pytest
+    - pip
     - pygobject
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
