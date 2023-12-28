@@ -66,3 +66,6 @@ fi
 meson setup ${MESON_ARGS:---libdir=$PREFIX/lib} builddir --prefix=$PREFIX -Dintrospection=enabled -Dnumcosmo_py=true || (cat builddir/meson-logs/meson-log.txt && exit 1)
 meson compile -C builddir -j$CPU_COUNT
 meson install -C builddir
+python -m pip install --no-deps --ignore-installed . -vvv
+
+
