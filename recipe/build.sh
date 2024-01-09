@@ -40,7 +40,7 @@ if [ "${CONDA_BUILD_CROSS_COMPILATION}" = "1" ]; then
 
     # This should transform the last occurrence of 'nm' into 'gcc-nm'
     [[ $NM != *gcc* && $NM == *nm* ]] && export GCC_NM="${NM%nm}gcc-nm${NM##*nm}"
-    [[ -e $GCC_NM ]] && AR=$GCC_NM
+    [[ -e $GCC_NM ]] && NM=$GCC_NM
 
     # Unset them as we're ok with builds that are either slow or non-portable
     unset CFLAGS
