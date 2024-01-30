@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/NumCosmo/NumCosmo/releases/download/v{{ version }}/numcosmo-{{ version }}.tar.xz 
+  url: https://github.com/NumCosmo/NumCosmo/releases/download/v{{ version }}/numcosmo-{{ version }}.tar.xz
   sha256: {{ sha256 }}
 
 build:
