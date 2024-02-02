@@ -93,6 +93,8 @@ requirements:
     - matplotlib-base
     - zlib
     - python
+    - rich
+    - typer
 
 test:
   requires:
