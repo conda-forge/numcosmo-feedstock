@@ -22,6 +22,7 @@ source:
 
 build:
   number: {{ build }}
+  skip: true  # [py<39]
   skip: true  # [win]
   skip: true  # [python_impl == 'pypy']
   {% if mpi != 'nompi' %}
