@@ -1,12 +1,12 @@
-{% set version = "0.21.0" %}
-{% set sha256 = "858bcf347f6e45f1ec3d7c6232975f78bd3d41c0a4aa9a595eba6870737f41ad" %}
+{% set version = "0.21.1" %}
+{% set sha256 = "cb372d1d0d85b793d20e88f036d848b6f0f1a6643d5c23fc0add16d943038ceb" %}
 
 package:
   name: numcosmo
   version: {{ version }}
 
 source:
-  url: https://github.com/NumCosmo/NumCosmo/releases/download/v{{ version }}/numcosmo-{{ version }}.tar.xz 
+  url: https://github.com/NumCosmo/NumCosmo/releases/download/v{{ version }}/numcosmo-{{ version }}.tar.xz
   sha256: {{ sha256 }}
 
 build:
