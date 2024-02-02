@@ -96,6 +96,7 @@ requirements:
     - python
     - rich
     - typer
+    - openssh  # [mpi == 'openmpi']
 
 test:
   requires:
