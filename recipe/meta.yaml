@@ -97,11 +97,11 @@ requirements:
     - python
     - rich
     - typer
-    - openssh  # [mpi == 'openmpi']
 
 test:
   requires:
     - pygobject
+    - openssh  # [mpi == 'openmpi']
   commands:
     - test -f ${PREFIX}/lib/libnumcosmo{{ SHLIB_EXT }}   # [not win]
     - $PYTHON ${PREFIX}/share/numcosmo-{{ version }}/examples/example_simple.py
