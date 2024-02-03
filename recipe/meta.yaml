@@ -1,18 +1,42 @@
-{% set version = "0.21.0" %}
-{% set sha256 = "858bcf347f6e45f1ec3d7c6232975f78bd3d41c0a4aa9a595eba6870737f41ad" %}
+{% set name = "numcosmo" %}
+{% set version = "0.21.1" %}
+{% set build = 0 %}
+{% set sha256 = "cb372d1d0d85b793d20e88f036d848b6f0f1a6643d5c23fc0add16d943038ceb" %}
 
 package:
-  name: numcosmo
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://github.com/NumCosmo/NumCosmo/releases/download/v{{ version }}/numcosmo-{{ version }}.tar.xz 
   sha256: {{ sha256 }}
 
+# ensure mpi is defined (needed for conda-smithy recipe-lint)
+{% set mpi = mpi or 'nompi' %}
+
+{% if mpi == 'nompi' %}
+
+# prioritize nompi variant via build number
+{% set build = build + 100 %}
+{% endif %}
+
 build:
-  number: 0
+  number: {{ build }}
+  skip: true  # [py<39]
   skip: true  # [win]
   skip: true  # [python_impl == 'pypy']
+  {% if mpi != 'nompi' %}
+  {% set mpi_prefix = "mpi_" + mpi %}
+  {% else %}
+  {% set mpi_prefix = "nompi" %}
+  {% endif %}
+  string: "{{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}"
+
+  {% if mpi != 'nompi' %}
+  run_exports:
+    - {{ name }} * {{ mpi_prefix }}_*
+  {% endif %}
+  
   detect_binary_files_with_prefix: true
 
 requirements:
@@ -28,6 +52,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - gobject-introspection
+    - {{ mpi }}              # [build_platform != target_platform and mpi != 'nompi']
     - libblas                # [build_platform != target_platform]
     - libcblas               # [build_platform != target_platform]
     - liblapack              # [build_platform != target_platform]
@@ -42,6 +67,7 @@ requirements:
     - hdf5                   # [build_platform != target_platform]
     - libfyaml               # [build_platform != target_platform]
   host:
+    - {{ mpi }}  # [mpi != 'nompi']
     - libblas
     - libcblas
     - liblapack
@@ -59,6 +85,7 @@ requirements:
     - pytest
     - pygobject
   run:
+    - {{ mpi }}  # [mpi != 'nompi']
     - libcurl
     - fftw
     - nlopt
@@ -68,10 +95,13 @@ requirements:
     - matplotlib-base
     - zlib
     - python
+    - rich
+    - typer
 
 test:
   requires:
     - pygobject
+    - openssh  # [mpi == 'openmpi']
   commands:
     - test -f ${PREFIX}/lib/libnumcosmo{{ SHLIB_EXT }}   # [not win]
     - $PYTHON ${PREFIX}/share/numcosmo-{{ version }}/examples/example_simple.py

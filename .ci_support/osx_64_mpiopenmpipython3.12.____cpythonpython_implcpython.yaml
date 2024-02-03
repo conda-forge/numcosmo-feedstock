@@ -1,19 +1,17 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 arb:
 - '2.23'
 c_compiler:
-- gcc
+- clang
 c_compiler_version:
-- '12'
-cdt_name:
-- cos6
+- '16'
 cfitsio:
 - 4.3.1
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
 fftw:
 - '3'
 fortran_compiler:
@@ -34,20 +32,28 @@ libcblas:
 - 3.9 *netlib
 liblapack:
 - 3.9 *netlib
+macos_machine:
+- x86_64-apple-darwin13.4.0
 mpfr:
+- '4'
+mpi:
+- openmpi
+mpich:
 - '4'
 nlopt:
 - '2.7'
+openmpi:
+- '4'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.9.* *_cpython
+- 3.12.* *_cpython
 python_impl:
 - cpython
 target_platform:
-- linux-64
+- osx-64
 zip_keys:
 - - c_compiler_version
   - fortran_compiler_version
