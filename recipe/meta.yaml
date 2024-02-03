@@ -52,6 +52,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - gobject-introspection
+    - {{ mpi }}              # [build_platform != target_platform and mpi != 'nompi']
     - libblas                # [build_platform != target_platform]
     - libcblas               # [build_platform != target_platform]
     - liblapack              # [build_platform != target_platform]
