@@ -8,7 +8,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/NumCosmo/NumCosmo/releases/download/v{{ version }}/numcosmo-{{ version }}.tar.xz 
+  url: https://github.com/NumCosmo/NumCosmo/releases/download/v{{ version }}/numcosmo-{{ version }}.tar.xz
   sha256: {{ sha256 }}
 
 # ensure mpi is defined (needed for conda-smithy recipe-lint)
@@ -36,7 +36,6 @@ build:
   run_exports:
     - {{ name }} * {{ mpi_prefix }}_*
   {% endif %}
-  
   detect_binary_files_with_prefix: true
 
 requirements:
