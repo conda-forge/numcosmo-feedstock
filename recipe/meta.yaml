@@ -50,7 +50,7 @@ requirements:
     - pygobject
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
-    - gobject-introspection <1.80
+    - gobject-introspection <=1.78
     - {{ mpi }}              # [build_platform != target_platform and mpi != 'nompi']
     - libblas                # [build_platform != target_platform]
     - libcblas               # [build_platform != target_platform]
@@ -90,6 +90,7 @@ requirements:
     - nlopt
     - cfitsio
     - pygobject
+    - gobject-introspection <=1.78
     - numpy
     - matplotlib-base
     - zlib
