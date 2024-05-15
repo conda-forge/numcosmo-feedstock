@@ -50,6 +50,7 @@ requirements:
     - pygobject
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
+    - {{ stdlib('c') }}
     - gobject-introspection <=1.78.1
     - {{ mpi }}              # [build_platform != target_platform and mpi != 'nompi']
     - libblas                # [build_platform != target_platform]
