@@ -1,6 +1,6 @@
 {% set name = "numcosmo" %}
 {% set version = "0.21.2" %}
-{% set build = 3 %}
+{% set build = 4 %}
 {% set sha256 = "b831e5e89a4f70aba7332f6a14ae55f47d468d117cda8522745fe6f12868fdc0" %}
 
 package:
@@ -50,6 +50,7 @@ requirements:
     - pygobject
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
+    - {{ stdlib('c') }}
     - gobject-introspection <=1.78.1
     - {{ mpi }}              # [build_platform != target_platform and mpi != 'nompi']
     - libblas                # [build_platform != target_platform]
@@ -90,7 +91,7 @@ requirements:
     - nlopt
     - cfitsio
     - pygobject
-    - gobject-introspection <=1.78.1
+    - gobject-introspection
     - numpy
     - matplotlib-base
     - zlib
