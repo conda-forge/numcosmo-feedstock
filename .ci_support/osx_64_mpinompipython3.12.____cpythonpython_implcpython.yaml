@@ -13,7 +13,7 @@ c_stdlib:
 c_stdlib_version:
 - '10.13'
 cfitsio:
-- 4.4.0
+- 4.4.1
 channel_sources:
 - conda-forge
 channel_targets:
@@ -49,7 +49,7 @@ mpich:
 nlopt:
 - '2.7'
 openmpi:
-- '4'
+- '5'
 pin_run_as_build:
   python:
     min_pin: x.x
