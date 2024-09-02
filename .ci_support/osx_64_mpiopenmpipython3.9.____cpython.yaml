@@ -7,7 +7,7 @@ arb:
 c_compiler:
 - clang
 c_compiler_version:
-- '16'
+- '17'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -23,7 +23,7 @@ fftw:
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
-- '12'
+- '13'
 glib:
 - '2'
 gmp:
@@ -43,11 +43,11 @@ macos_machine:
 mpfr:
 - '4'
 mpi:
-- mpich
+- openmpi
 mpich:
 - '4'
 nlopt:
-- '2.7'
+- '2.8'
 openmpi:
 - '5'
 pin_run_as_build:
