@@ -1,6 +1,6 @@
 {% set name = "numcosmo" %}
 {% set version = "0.22.0" %}
-{% set build = 1 %}
+{% set build = 2 %}
 {% set sha256 = "2107329b00382553391eec405c946a86e29d27377903de9dc4c04861ff4d06eb" %}
 
 package:
@@ -51,7 +51,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - {{ stdlib('c') }}
-    - gobject-introspection <=1.78.1
+    - gobject-introspection
     - {{ mpi }}              # [build_platform != target_platform and mpi != 'nompi']
     - libblas                # [build_platform != target_platform]
     - libcblas               # [build_platform != target_platform]
