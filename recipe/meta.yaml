@@ -1,7 +1,7 @@
 {% set name = "numcosmo" %}
-{% set version = "0.22.0" %}
-{% set build = 4 %}
-{% set sha256 = "2107329b00382553391eec405c946a86e29d27377903de9dc4c04861ff4d06eb" %}
+{% set version = "0.23.0" %}
+{% set build = 0 %}
+{% set sha256 = "93f6e2d59e9e3db024ece8a45a90a0af47dfb8c0492b52e41247fd7196022a21" %}
 
 package:
   name: {{ name }}
