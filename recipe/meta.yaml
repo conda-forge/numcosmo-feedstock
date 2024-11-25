@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 # ensure mpi is defined (needed for conda-smithy recipe-lint)
-{% set mpi = 'mpi' or 'nompi' %}
+{% set mpi = mpi or 'nompi' %}
 
 {% if mpi == 'nompi' %}
 
@@ -22,7 +22,7 @@ source:
 
 build:
   number: {{ build }}
-  skip: true  # [py<39 or win or (python_impl=='pypy')]
+  skip: true  # [py<310 or win or (python_impl=='pypy')]
 {% if mpi != 'nompi' %}
 {% set mpi_prefix = "mpi_" + mpi %}
 {% else %}
