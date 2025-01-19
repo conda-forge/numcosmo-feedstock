@@ -43,6 +43,7 @@ requirements:
     - ninja
     - pkg-config
     - pytest
+    - pytest-lazy-fixtures
     - pip
     - pygobject
     - {{ compiler('c') }}
@@ -81,6 +82,7 @@ requirements:
     - libfyaml
     - python
     - pytest
+    - pytest-lazy-fixtures
     - pygobject
     - zlib
   run:
@@ -93,10 +95,10 @@ requirements:
     - gobject-introspection
     - numpy
     - matplotlib-base
-    - zlib
     - python
     - rich
     - typer
+    - zlib
 
 test:
   requires:
