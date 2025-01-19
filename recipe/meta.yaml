@@ -63,6 +63,7 @@ requirements:
     - arb                    # [build_platform != target_platform]
     - hdf5                   # [build_platform != target_platform]
     - libfyaml               # [build_platform != target_platform]
+    - zlib                   # [build_platform != target_platform]
   host:
     - {{ mpi }}  # [mpi != 'nompi']
     - libblas
@@ -81,6 +82,7 @@ requirements:
     - python
     - pytest
     - pygobject
+    - zlib
   run:
     - {{ mpi }}  # [mpi != 'nompi']
     - libcurl
