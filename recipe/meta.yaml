@@ -98,7 +98,7 @@ requirements:
     - numpy
     - matplotlib-base
     - python
-    - click < 8.2
+    - click <8.2
     - rich
     - typer
     - zlib
