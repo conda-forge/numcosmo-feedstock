@@ -7,7 +7,7 @@ arb:
 c_compiler:
 - clang
 c_compiler_version:
-- '18'
+- '19'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -23,7 +23,7 @@ fftw:
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
-- '13'
+- '14'
 glib:
 - '2'
 gmp:
@@ -63,7 +63,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - fortran_compiler_version
-- - python
-  - python_impl
 zlib:
 - '1'
