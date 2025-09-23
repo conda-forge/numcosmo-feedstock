@@ -15,7 +15,7 @@ c_stdlib_version:
 cfitsio:
 - 4.6.2
 channel_sources:
-- conda-forge
+- conda-forge,conda-forge/label/python_rc
 channel_targets:
 - conda-forge main
 fftw:
@@ -43,7 +43,7 @@ macos_machine:
 mpfr:
 - '4'
 mpi:
-- nompi
+- mpich
 mpich:
 - '4'
 nlopt:
@@ -55,7 +55,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.12.* *_cpython
+- 3.14.* *_cp314
 python_impl:
 - cpython
 target_platform:
