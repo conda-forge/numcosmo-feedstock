@@ -1,6 +1,5 @@
 {% set name = "numcosmo" %}
 {% set version = "0.25.0" %}
-{% set build = 3 %}
 {% set sha256 = "c7f64c6564a5843578ba4141ae6c89fed92ef34953e51e37833c3a34228a30b4" %}
 
 package:
@@ -14,25 +13,12 @@ source:
 # ensure mpi is defined (needed for conda-smithy recipe-lint)
 {% set mpi = mpi or 'nompi' %}
 
-{% if mpi == 'nompi' %}
-
-# prioritize nompi variant via build number
-{% set build = build + 100 %}
-{% endif %}
-
 build:
-  number: {{ build }}
+  number: 103  # [mpi == "nompi"]
+  number: 3    # [mpi != "nompi"]
   skip: true  # [py<311 or win or (python_impl=='pypy')]
-{% if mpi != 'nompi' %}
-{% set mpi_prefix = "mpi_" + mpi %}
-{% else %}
-{% set mpi_prefix = "nompi" %}
-{% endif %}
-  string: "{{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}"
-{% if mpi != 'nompi' %}
-  run_exports:
-    - {{ name }} * {{ mpi_prefix }}_*
-{% endif %}
+  string: "nompi_h{{ PKG_HASH }}_103"  # [mpi == "nompi"]
+  string: "mpi_{{ mpi }}_h{{ PKG_HASH }}_3"  # [mpi != "nompi"]
   detect_binary_files_with_prefix: true
 
 requirements:
@@ -59,9 +45,9 @@ requirements:
     - gsl                    # [build_platform != target_platform]
     - gmp                    # [build_platform != target_platform]
     - mpfr                   # [build_platform != target_platform]
-    - fftw                    # [build_platform != target_platform]
+    - fftw                   # [build_platform != target_platform]
     - nlopt                  # [build_platform != target_platform]
-    - cfitsio                 # [build_platform != target_platform]
+    - cfitsio                # [build_platform != target_platform]
     - arb                    # [build_platform != target_platform]
     - hdf5                   # [build_platform != target_platform]
     - libfyaml               # [build_platform != target_platform]
