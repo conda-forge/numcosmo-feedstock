@@ -17,12 +17,12 @@ source:
 # rebuild of the package.
 build:
   skip: true  # [py<311 or win or (python_impl=='pypy')]
-  number: 103                               # [mpi == "nompi"]
-  string: "nompi_h{{ PKG_HASH }}_103"       # [mpi == "nompi"]
-  number: 3                                 # [mpi != "nompi"]
-  string: "mpi_{{ mpi }}_h{{ PKG_HASH }}_3" # [mpi != "nompi"]
-  run_exports:                              # [mpi != "nompi"]
-    - {{ name }} * mpi_{{ mpi }}_*          # [mpi != "nompi"]
+  number: 103                                # [mpi == "nompi"]
+  string: "nompi_h{{ PKG_HASH }}_103"        # [mpi == "nompi"]
+  number: 3                                  # [mpi != "nompi"]
+  string: "mpi_{{ mpi }}_h{{ PKG_HASH }}_3"  # [mpi != "nompi"]
+  run_exports:                               # [mpi != "nompi"]
+    - {{ name }} * mpi_{{ mpi }}_*           # [mpi != "nompi"]
   detect_binary_files_with_prefix: true
 
 requirements:
