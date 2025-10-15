@@ -8,10 +8,8 @@ c_stdlib:
 - sysroot
 c_stdlib_version:
 - '2.17'
-cdt_name:
-- conda
 cfitsio:
-- 4.6.2
+- 4.6.3
 channel_sources:
 - conda-forge
 channel_targets:
@@ -61,7 +59,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - fortran_compiler_version
-- - python
-  - channel_sources
 zlib:
 - '1'
