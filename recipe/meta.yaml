@@ -13,12 +13,16 @@ source:
 # ensure mpi is defined (needed for conda-smithy recipe-lint)
 {% set mpi = mpi or 'nompi' %}
 
+# Update the build number at all places below when making changes that require a
+# rebuild of the package.
 build:
-  number: 103  # [mpi == "nompi"]
-  number: 3    # [mpi != "nompi"]
   skip: true  # [py<311 or win or (python_impl=='pypy')]
-  string: "nompi_h{{ PKG_HASH }}_103"  # [mpi == "nompi"]
-  string: "mpi_{{ mpi }}_h{{ PKG_HASH }}_3"  # [mpi != "nompi"]
+  number: 103                               # [mpi == "nompi"]
+  string: "nompi_h{{ PKG_HASH }}_103"       # [mpi == "nompi"]
+  number: 3                                 # [mpi != "nompi"]
+  string: "mpi_{{ mpi }}_h{{ PKG_HASH }}_3" # [mpi != "nompi"]
+  run_exports:                              # [mpi != "nompi"]
+    - {{ name }} * mpi_{{ mpi }}_*          # [mpi != "nompi"]
   detect_binary_files_with_prefix: true
 
 requirements:
