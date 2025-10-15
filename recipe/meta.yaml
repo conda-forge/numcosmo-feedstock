@@ -104,7 +104,6 @@ test:
 about:
   home: https://numcosmo.github.io/
   license: GPL-3.0-or-later
-  license_family: GPL
   license_file: COPYING
   summary: 'NumCosmo is a free software C library whose main purposes are to test cosmological models using observational data and to provide a set of tools to perform cosmological calculations.'
 
