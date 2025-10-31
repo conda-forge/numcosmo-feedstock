@@ -1,6 +1,6 @@
 {% set name = "numcosmo" %}
-{% set version = "0.25.0" %}
-{% set sha256 = "c7f64c6564a5843578ba4141ae6c89fed92ef34953e51e37833c3a34228a30b4" %}
+{% set version = "0.26.0" %}
+{% set sha256 = "5e4a35fc2fc56346b6161fc55eea80a8b3f547ed79d1c55801541c8ed6483db8" %}
 
 package:
   name: {{ name }}
@@ -17,10 +17,10 @@ source:
 # rebuild of the package.
 build:
   skip: true  # [py<311 or win or (python_impl=='pypy')]
-  number: 103                                # [mpi == "nompi"]
-  string: "nompi_h{{ PKG_HASH }}_103"        # [mpi == "nompi"]
-  number: 3                                  # [mpi != "nompi"]
-  string: "mpi_{{ mpi }}_h{{ PKG_HASH }}_3"  # [mpi != "nompi"]
+  number: 100                                # [mpi == "nompi"]
+  string: "nompi_h{{ PKG_HASH }}_100"        # [mpi == "nompi"]
+  number: 0                                  # [mpi != "nompi"]
+  string: "mpi_{{ mpi }}_h{{ PKG_HASH }}_0"  # [mpi != "nompi"]
   run_exports:                               # [mpi != "nompi"]
     - {{ name }} * mpi_{{ mpi }}_*           # [mpi != "nompi"]
   detect_binary_files_with_prefix: true
