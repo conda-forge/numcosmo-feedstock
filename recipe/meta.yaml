@@ -17,12 +17,12 @@ source:
 
 build:
   skip: true  # [py<311 or win or (python_impl=='pypy')]
-  number: {{ nonmpi_build }}                          # [mpi == "nompi"]
-  string: "nompi_h{{ PKG_HASH }}_{{ nonmpi_build }}"  # [mpi == "nompi"]
-  number: {{ build }}                                 # [mpi != "nompi"]
-  string: "mpi_{{ mpi }}_h{{ PKG_HASH }}_{{ build }}" # [mpi != "nompi"]
-  run_exports:                                        # [mpi != "nompi"]
-    - {{ name }} * mpi_{{ mpi }}_*                    # [mpi != "nompi"]
+  number: {{ nonmpi_build }}                           # [mpi == "nompi"]
+  string: "nompi_h{{ PKG_HASH }}_{{ nonmpi_build }}"   # [mpi == "nompi"]
+  number: {{ build }}                                  # [mpi != "nompi"]
+  string: "mpi_{{ mpi }}_h{{ PKG_HASH }}_{{ build }}"  # [mpi != "nompi"]
+  run_exports:                                         # [mpi != "nompi"]
+    - {{ name }} * mpi_{{ mpi }}_*                     # [mpi != "nompi"]
   detect_binary_files_with_prefix: true
 
 requirements:
