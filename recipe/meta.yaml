@@ -60,6 +60,7 @@ requirements:
     - zlib                   # [build_platform != target_platform]
   host:
     - {{ mpi }}  # [mpi != 'nompi']
+    - libfabric-devel  # [mpi != 'nompi']
     - libblas
     - libcblas
     - liblapack
