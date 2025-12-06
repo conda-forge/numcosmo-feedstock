@@ -24,6 +24,8 @@ build:
   run_exports:                                         # [mpi != "nompi"]
     - {{ name }} * mpi_{{ mpi }}_*                     # [mpi != "nompi"]
   detect_binary_files_with_prefix: true
+  ignore_run_exports_from:
+    - libfabric-devel
 
 requirements:
   build:
