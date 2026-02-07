@@ -25,9 +25,6 @@ export PKG_CONFIG=$(which pkg-config)
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == 1 ]]; then
   unset _CONDA_PYTHON_SYSCONFIGDATA_NAME
   (
-    mkdir -p native-build
-    cd native-build
-
     export CC=$CC_FOR_BUILD
     export FC=$FC_FOR_BUILD
     export F77=$FC_FOR_BUILD
