@@ -62,7 +62,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == 1 ]]; then
 
     # This script would generate the functions.txt and dump.xml and save them
     # This is loaded in the native build. We assume that the functions exported
-    # by glib are the same for the native and cross builds
+    # by NumCosmo are the same for the native and cross builds
     export GI_CROSS_LAUNCHER=$BUILD_PREFIX/libexec/gi-cross-launcher-save.sh
     ninja -C native-build -j${CPU_COUNT}
     ninja -C native-build install
@@ -90,7 +90,7 @@ meson setup builddir \
     || { cat builddir/meson-logs/meson-log.txt ; exit 1 ; }
 
 ninja -C builddir -j${CPU_COUNT} -v
-ninja -C builddir install || (cat meson-logs/meson-log.txt; false)
+ninja -C builddir install || (cat builddir/meson-logs/meson-log.txt; false)
 
 # Manually install introspection data during cross-compilation
 # These files are the only difference when running with a different setting of -Dintrospection
