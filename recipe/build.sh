@@ -62,7 +62,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == 1 ]]; then
     # This script would generate the functions.txt and dump.xml and save them
     # This is loaded in the native build. We assume that the functions exported
     # by glib are the same for the native and cross builds
-    export GI_CROSS_LAUNCHER=$GIR_PREFIX/libexec/gi-cross-launcher-save.sh
+    export GI_CROSS_LAUNCHER=$BUILD_PREFIX/libexec/gi-cross-launcher-save.sh
     ninja -C native-build -j${CPU_COUNT}
     ninja -C native-build install
 
@@ -72,7 +72,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == 1 ]]; then
     mkdir -p introspection/share
     cp -ap $BUILD_PREFIX/share/gir-1.0 introspection/share
   )
-  export GI_CROSS_LAUNCHER=$GIR_PREFIX/libexec/gi-cross-launcher-load.sh
+  export GI_CROSS_LAUNCHER=$BUILD_PREFIX/libexec/gi-cross-launcher-load.sh
   export MESON_ARGS="${MESON_ARGS} -Dintrospection=disabled"
 else
   export MESON_ARGS="${MESON_ARGS} -Dintrospection=enabled"
