@@ -88,3 +88,11 @@ meson setup builddir \
 
 ninja -C builddir -j${CPU_COUNT} -v
 ninja -C builddir install || (cat meson-logs/meson-log.txt; false)
+
+# Manually install introspection data during cross-compilation
+# These files are the only difference when running with a different setting of -Dintrospection
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == 1 ]]; then
+    cp -ap introspection/lib/girepository-1.0 $PREFIX/lib
+    cp -ap introspection/share/gir-1.0 $PREFIX/share
+fi
+
