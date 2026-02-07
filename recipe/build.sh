@@ -87,3 +87,4 @@ meson setup builddir \
     || { cat builddir/meson-logs/meson-log.txt ; exit 1 ; }
 
 ninja -C builddir -j${CPU_COUNT} -v
+ninja -C builddir install || (cat meson-logs/meson-log.txt; false)
