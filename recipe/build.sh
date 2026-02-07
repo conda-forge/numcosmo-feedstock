@@ -68,9 +68,11 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == 1 ]]; then
 
     # Store generated introspection information
     mkdir -p introspection/lib
-    cp -ap $BUILD_PREFIX/lib/girepository-1.0 introspection/lib
+    cp -ap $BUILD_PREFIX/lib/girepository-1.0/NumCosmoMath-1.0.typelib introspection/lib
+    cp -ap $BUILD_PREFIX/lib/girepository-1.0/NumCosmo-1.0.typelib introspection/lib
     mkdir -p introspection/share
-    cp -ap $BUILD_PREFIX/share/gir-1.0 introspection/share
+    cp -ap $BUILD_PREFIX/share/gir-1.0/NumCosmoMath-1.0.gir introspection/share
+    cp -ap $BUILD_PREFIX/share/gir-1.0/NumCosmo-1.0.gir introspection/share
   )
   export GI_CROSS_LAUNCHER=$BUILD_PREFIX/libexec/gi-cross-launcher-load.sh
   export MESON_ARGS="${MESON_ARGS} -Dintrospection=disabled"
@@ -92,7 +94,8 @@ ninja -C builddir install || (cat meson-logs/meson-log.txt; false)
 # Manually install introspection data during cross-compilation
 # These files are the only difference when running with a different setting of -Dintrospection
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == 1 ]]; then
-    cp -ap introspection/lib/girepository-1.0 $PREFIX/lib
-    cp -ap introspection/share/gir-1.0 $PREFIX/share
+    cp -ap introspection/lib/NumCosmoMath-1.0.typelib $PREFIX/lib/girepository-1.0
+    cp -ap introspection/lib/NumCosmo-1.0.typelib $PREFIX/lib/girepository-1.0
+    cp -ap introspection/share/NumCosmoMath-1.0.gir $PREFIX/share/gir-1.0
+    cp -ap introspection/share/NumCosmo-1.0.gir $PREFIX/share/gir-1.0 
 fi
-
