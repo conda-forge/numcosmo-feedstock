@@ -4,6 +4,7 @@ set -exuo pipefail
 
 meson_config_args=(
      --backend=ninja
+     -Dlibdir=lib
 )
 
 _PY=$PYTHON
