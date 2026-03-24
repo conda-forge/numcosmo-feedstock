@@ -41,7 +41,7 @@ mpfr:
 mpi:
 - mpich
 mpich:
-- '4'
+- '5'
 nlopt:
 - '2.10'
 openmpi:
