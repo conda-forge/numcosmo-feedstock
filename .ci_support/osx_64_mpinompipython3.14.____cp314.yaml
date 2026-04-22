@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.13'
+- '11.0'
 MACOSX_SDK_VERSION:
-- '10.13'
+- '11.0'
 arb:
 - '2.23'
 c_compiler:
@@ -11,7 +11,7 @@ c_compiler_version:
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
-- '10.13'
+- '11.0'
 cfitsio:
 - 4.6.3
 channel_sources:
@@ -45,7 +45,7 @@ mpfr:
 mpi:
 - nompi
 mpich:
-- '4'
+- '5'
 nlopt:
 - '2.10'
 openmpi:
