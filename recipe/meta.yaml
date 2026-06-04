@@ -1,6 +1,6 @@
 {% set name = "numcosmo" %}
 {% set version = "0.27.0" %}
-{% set build = 3 %}
+{% set build = 4 %}
 {% set sha256 = "7902525207187e7bfe93674955b0b7b11bc7f418d60a87d8540efe93a752fc0c" %}
 {% set nonmpi_build = build + 100 %}
 
@@ -78,6 +78,7 @@ requirements:
     - pytest
     - pytest-lazy-fixtures
     - pygobject
+    - pygobject-stubs
     - zlib
   run:
     - {{ mpi }}  # [mpi != 'nompi']
@@ -86,6 +87,7 @@ requirements:
     - nlopt
     - cfitsio
     - pygobject
+    - pygobject-stubs    
     - gobject-introspection
     - numpy
     - scipy
