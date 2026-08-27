@@ -3,7 +3,7 @@ arb:
 c_compiler:
 - gcc
 c_compiler_version:
-- '14'
+- '15'
 c_stdlib:
 - sysroot
 c_stdlib_version:
@@ -15,19 +15,19 @@ channel_sources:
 channel_targets:
 - conda-forge main
 docker_image:
-- quay.io/condaforge/linux-anvil-x86_64:alma9
+- quay.io/condaforge/linux-anvil-x86_64:alma10
 fftw:
 - '3'
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
-- '14'
+- '15'
 glib:
 - '2'
 gmp:
 - '6'
 gsl:
-- '2.7'
+- '2.8'
 hdf5:
 - '2'
 libblas:
