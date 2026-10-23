@@ -1,6 +1,6 @@
 {% set name = "numcosmo" %}
 {% set version = "0.28.0" %}
-{% set build = 0 %}
+{% set build = 1 %}
 {% set sha256 = "4c40fa8cea3ac4a6facfbc1d604123550ff6bd68935a5a5473a9b184253e5066" %}
 {% set nonmpi_build = build + 100 %}
 
@@ -34,8 +34,6 @@ requirements:
     - meson
     - ninja
     - pkg-config
-    - pytest
-    - pytest-lazy-fixtures
     - pip
     - pygobject
     - {{ compiler('c') }}
@@ -73,8 +71,6 @@ requirements:
     - arb
     - hdf5
     - python
-    - pytest
-    - pytest-lazy-fixtures
     - pygobject
     - pygobject-stubs
     - zlib
@@ -90,19 +86,27 @@ requirements:
     - numpy
     - scipy
     - matplotlib-base
+    - astropy-base
+    - getdist
+    - networkx
+    - pydantic
+    - tabulate
+    - tqdm
     - python
-    - click
     - rich
-    - requests
     - typer
     - zlib
 
 test:
   requires:
+    - pip
     - pygobject
     - openssh  # [mpi == 'openmpi']
   commands:
     - test -f ${PREFIX}/lib/libnumcosmo{{ SHLIB_EXT }}   # [not win]
+    - numcosmo --help
+    - $PYTHON -c "import numcosmo_py.analysis, numcosmo_py.app, numcosmo_py.catalog, numcosmo_py.ccl, numcosmo_py.datasets, numcosmo_py.experiments, numcosmo_py.external, numcosmo_py.interpolation, numcosmo_py.plotting, numcosmo_py.sampling"
+    - $PYTHON -m pip check
     - $PYTHON ${PREFIX}/share/numcosmo-{{ version }}/examples/example_simple.py
 
 about:
