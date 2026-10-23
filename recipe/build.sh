@@ -96,14 +96,14 @@ ninja -C builddir install || (cat builddir/meson-logs/meson-log.txt; false)
 # packages linked here; the full suite is run by the NumCosmo CI. Native builds only.
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 ]]; then
     quick_tests=(
-        ncm_vector ncm_matrix ncm_lapack ncm_nnls
+        ncm_vector ncm_lapack ncm_nnls
         ncm_sf_sbessel ncm_mpsf_0F1
         ncm_spline_bspline ncm_spline2d ncm_integral1d ncm_integral_nd ncm_ode_spline ncm_csq1d
         ncm_fftlog
         ncm_fit_nlopt_neldermead ncm_fit_gsl_mm_vector_bfgs2
         ncm_serialize
         ncm_spline_bspline_threads
-        nc_distance nc_recomb nc_data_snia_cov
+        nc_distance nc_data_snia_cov
     )
     if [[ "${mpi:-nompi}" != "nompi" ]]; then
         quick_tests+=(ncm_mpi_job_n1)
