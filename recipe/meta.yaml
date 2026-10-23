@@ -86,7 +86,7 @@ requirements:
     - numpy
     - scipy
     - matplotlib-base
-    - astropy
+    - astropy-base
     - getdist
     - networkx
     - pydantic
