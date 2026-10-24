@@ -105,7 +105,7 @@ test:
   commands:
     - test -f ${PREFIX}/lib/libnumcosmo{{ SHLIB_EXT }}   # [not win]
     - numcosmo --help
-    - $PYTHON -c "import numcosmo_py.analysis, numcosmo_py.app, numcosmo_py.catalog, numcosmo_py.ccl, numcosmo_py.datasets, numcosmo_py.experiments, numcosmo_py.external, numcosmo_py.interpolation, numcosmo_py.plotting, numcosmo_py.sampling"
+    - $PYTHON -c "import numcosmo_py.analysis, numcosmo_py.app, numcosmo_py.catalog, numcosmo_py.ccl, numcosmo_py.certified, numcosmo_py.datasets, numcosmo_py.experiments, numcosmo_py.external, numcosmo_py.interpolation, numcosmo_py.plotting, numcosmo_py.sampling"
     - $PYTHON -m pip check
     - $PYTHON ${PREFIX}/share/numcosmo-{{ version }}/examples/example_simple.py
 
