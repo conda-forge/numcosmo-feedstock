@@ -33,7 +33,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - meson
     - ninja
-    - pkg-config
+    - pkgconf
     - pip
     - pygobject
     - {{ compiler('c') }}
